@@ -1,0 +1,29 @@
+group 'com.cyricc.rpi-server'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.sparkjava:spark-core:2.5", "org.slf4j:slf4j-simple:1.7.21", "com.j2html:j2html:0.7"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+//jar {
+//    manifest {
+//        attributes 'Main-Class': 'com.cyricc.rpiserver.RPiServer'
+//    }
+//}
+mainClassName = 'com.cyricc.rpiserver.RPiServer'
