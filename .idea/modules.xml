@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpi-server.iml" filepath="$PROJECT_DIR$/.idea/modules/rpi-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpi-server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rpi-server_main.iml" group="rpi-server" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpi-server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rpi-server_test.iml" group="rpi-server" />
     </modules>
   </component>
 </project>

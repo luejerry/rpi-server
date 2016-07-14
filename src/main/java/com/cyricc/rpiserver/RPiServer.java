@@ -15,6 +15,7 @@ public class RPiServer {
 
     private static void setRoutes() {
         final WettyChecker checker = new WettyChecker();
+        final Uptime uptime = new Uptime();
         redirect.get("/rpi-wetty", "https://cyricc.duckdns.org:3000");
         get("/", (request, response) -> {
             Status status = checker.checkWetty();
@@ -36,7 +37,11 @@ public class RPiServer {
                                                     .orElse("Unknown") + " seconds to next update)"
                                     )
                             ),
-                            h2("CORE2 access")
+                            h2("CORE2 access"),
+                            footer().with(
+                                    hr(),
+                                    em().with(text(uptime.toString()))
+                            )
                     )
             ).render();
         });
