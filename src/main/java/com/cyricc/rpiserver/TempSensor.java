@@ -40,8 +40,10 @@ public class TempSensor {
                 }
                 if (oTemp.isPresent()) {
                     temp = oTemp.get();
+                    Broadcaster.pushTemp(temp);
                 }
             }
+//            Broadcaster.pushTemp(50);
         }, 0, PERIOD, TimeUnit.SECONDS);
     }
 
