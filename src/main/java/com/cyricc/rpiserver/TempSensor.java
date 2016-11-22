@@ -75,9 +75,11 @@ public class TempSensor {
             String line = reader.readLine();
 //            System.out.println(line);
             if (!line.endsWith("YES")) {
+                reader.close();
                 return Optional.empty();
             }
             line = reader.readLine();
+            reader.close();
             final Integer temp = Integer.valueOf(line.substring(line.length() - 5));
             return Optional.of(temp);
         } catch (IOException e) {

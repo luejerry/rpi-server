@@ -13,6 +13,7 @@ public class ProcessReader {
             builder.append(line);
             builder.append(System.getProperty("line.separator"));
         }
+        reader.close();
         return builder.toString();
     }
 }
