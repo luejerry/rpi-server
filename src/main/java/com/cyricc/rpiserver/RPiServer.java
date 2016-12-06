@@ -22,25 +22,34 @@ public class RPiServer {
             Status status = checker.checkWetty();
             return html().with(
                     head().with(
-                            title("VS-RPI3 web access")
+                            title("VS-RPI3 web access"),
+                            link().withHref("main.css").withType("text/css").withRel("stylesheet")
                     ),
                     body().with(
                             h1("Raspberry Pi webserver"),
                             h2("VS-RPI3 access"),
-                            p().with(
-                                    text("[" + status.toString() + "] "),
-                                    a("Web SSH").withHref("/rpi-wetty"),
-                                    br(),
-                                    text("[" + TempSensor.getStatus() + "] Room temperature: " +
-                                            TempSensor.getTemp() + " \u00B0C (" +
-                                            TempSensor.oGetDelay()
-                                                    .map(Object::toString)
-                                                    .orElse("Unknown") + " seconds to next update)"
+                            ul().with(
+                                    li().with(
+                                            div().withClass("status").with(
+                                                    text("[" + status.toString() + "] ")
+                                            ),
+                                            a("Web SSH").withHref("/rpi-wetty")
                                     ),
-                                    br(),
-                                    div().withClass("temp").with(
-                                            text("placeholder")
+                                    li().with(
+                                            div().withClass("status").with(
+                                                    text("[" + TempSensor.getStatus() + "] ")
+                                            ),
+                                            text("Room temperature: " +
+                                                            TempSensor.getTemp() + " \u00B0C (" +
+                                                            TempSensor.oGetDelay()
+                                                                    .map(Object::toString)
+                                                                    .orElse("Unknown") + " seconds to next update)"
+                                                    )
+                                            )
                                     )
+                            ),
+                            div().withClass("temp").with(
+                                    text("placeholder")
                             ),
                             h2("CORE2 access"),
                             footer().with(
