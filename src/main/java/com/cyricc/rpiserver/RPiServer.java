@@ -23,7 +23,7 @@ public class RPiServer {
             return html().with(
                     head().with(
                             title("VS-RPI3 web access"),
-                            link().withHref("main.css").withType("text/css").withRel("stylesheet")
+                            link().withHref("web/main.css").withType("text/css").withRel("stylesheet")
                     ),
                     body().with(
                             h1("Raspberry Pi webserver"),
@@ -57,7 +57,7 @@ public class RPiServer {
                             em().with(text(uptime.toString()))
                     ),
                     script().withSrc("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"),
-                    script().withSrc("main.js")
+                    script().withSrc("web/main.js")
             ).render();
         });
 
