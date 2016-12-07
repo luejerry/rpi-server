@@ -23,40 +23,41 @@ public class RPiServer {
             return html().with(
                     head().with(
                             title("VS-RPI3 web access"),
-                            link().withHref("main.css").withType("text/css").withRel("stylesheet"),
-                            script().withSrc("main.js")
+                            link().withHref("main.css").withType("text/css").withRel("stylesheet")
                     ),
                     body().with(
                             h1("Raspberry Pi webserver"),
                             h2("VS-RPI3 access"),
                             ul().with(
                                     li().with(
-                                            div().withClass("status").with(
+                                            div().withClass("status").withClass(status.toString()).with(
                                                     text("[" + status.toString() + "] ")
                                             ),
                                             a("Web SSH").withHref("/rpi-wetty")
                                     ),
                                     li().with(
-                                            div().withClass("status").with(
+                                            div().withClass("status").withClass(status.toString()).with(
                                                     text("[" + TempSensor.getStatus() + "] ")
                                             ),
                                             text("Room temperature: " +
-                                                            TempSensor.getTemp() + " \u00B0C (" +
-                                                            TempSensor.oGetDelay()
-                                                                    .map(Object::toString)
-                                                                    .orElse("Unknown") + " seconds to next update)"
-                                                    )
+                                                    TempSensor.getTemp() + " \u00B0C (" +
+                                                    TempSensor.oGetDelay()
+                                                            .map(Object::toString)
+                                                            .orElse("Unknown") + " seconds to next update)"
                                             )
                                     )
-                            ),
-                            div().withClass("temp").with(
-                                    text("placeholder")
-                            ),
-                            h2("CORE2 access"),
-                            footer().with(
-                                    hr(),
-                                    em().with(text(uptime.toString()))
                             )
+                    ),
+                    div().withClass("temp").with(
+                            text("placeholder")
+                    ),
+                    h2("CORE2 access"),
+                    footer().with(
+                            hr(),
+                            em().with(text(uptime.toString()))
+                    ),
+                    script().withSrc("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"),
+                    script().withSrc("main.js")
             ).render();
         });
 

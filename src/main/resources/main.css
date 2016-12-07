@@ -13,3 +13,13 @@ body {
     border-radius: 2px;
     display: inline-block;
 }
+
+.status.LIVE {
+    color: LimeGreen;
+    border-color: LimeGreen;
+}
+
+.status.DEAD {
+    color: Maroon;
+    border-color: Maroon;
+}
