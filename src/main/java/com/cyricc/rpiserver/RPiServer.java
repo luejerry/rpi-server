@@ -10,7 +10,7 @@ public class RPiServer {
 
     private static void init() {
         port(80);
-        staticFiles.location("/");
+        staticFiles.location("/web");
     }
 
     private static void setRoutes() {
