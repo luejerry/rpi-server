@@ -30,13 +30,13 @@ public class RPiServer {
                             h2("VS-RPI3 access"),
                             ul().with(
                                     li().with(
-                                            div().withClass("status").withClass(status.toString()).with(
+                                            div().withClass("status " + status.toString()).with(
                                                     text("[" + status.toString() + "] ")
                                             ),
                                             a("Web SSH").withHref("/rpi-wetty")
                                     ),
                                     li().with(
-                                            div().withClass("status").withClass(status.toString()).with(
+                                            div().withClass("status " + status.toString()).with(
                                                     text("[" + TempSensor.getStatus() + "] ")
                                             ),
                                             text("Room temperature: " +

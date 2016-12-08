@@ -1,7 +1,7 @@
 /**
  * Created by cyricc on 7/20/2016.
  */
-$(document).load(main);
+$(document).ready(main);
 
 function main() {
     var loc = window.location;
