@@ -42,15 +42,17 @@ public class RPiServer {
                                                     ),
                                                     text("Room temperature: "),
                                                     div().withClass("temp"),
-                                                    text(" \u00B0C (" +
-                                                            TempSensor.oGetDelay()
+                                                    text(" \u00B0C ("),
+                                                    div().withId("temp-timer").with(
+                                                            text(TempSensor.oGetDelay()
                                                                     .map(Object::toString)
-                                                                    .orElse("Unknown") + " seconds to next update)"
+                                                                    .orElse("0"))
                                                     )
                                             )
                                     )
                             )
-                    ),
+                    )
+            );,
                     h2("CORE2 access"),
                     footer().with(
                             hr(),
