@@ -20,6 +20,7 @@ public class RPiServer {
         redirect.get("/rpi-wetty", "https://cyricc.duckdns.org:3000");
         get("/", (request, response) -> {
             Status status = checker.checkWetty();
+            response.header("Cache-Control", "no-store");
             return html().with(
                     head().with(
                             title("VS-RPI3 web access"),
@@ -37,7 +38,7 @@ public class RPiServer {
                                                     a("Web SSH").withHref("/rpi-wetty")
                                             ),
                                             li().with(
-                                                    div().withClass("status " + status.toString()).with(
+                                                    div().withClass("status " + TempSensor.getStatus().toString()).with(
                                                             text(TempSensor.getStatus().toString())
                                                     ),
                                                     text("Room temperature: "),
@@ -54,8 +55,8 @@ public class RPiServer {
                             )
                     ),
                     h2("CORE2 access"),
-                    footer().with(
                             hr(),
+                    div().withClass("uptime").with(
                             em().with(text(uptime.toString()))
                     ),
                     script().withSrc("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"),

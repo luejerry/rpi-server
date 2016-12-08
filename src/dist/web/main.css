@@ -47,8 +47,8 @@ hr, h1 {
 }
 
 .status.DEAD {
-    color: Maroon;
-    border-color: Maroon;
+    color: #f44336;
+    border-color: #f44336;
 }
 
 ul {
