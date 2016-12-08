@@ -11,6 +11,7 @@ function main() {
     var temp = $(".temp");
     var timer = setInterval(function() {}, 1000);
     var counter = parseInt($('#temp-timer').text());
+
     connection.onopen = function () {
         connection.send("ACK");
     };
@@ -27,6 +28,12 @@ function main() {
         $('#temp-timer').text(counter);
         counter = TEMPINTERVAL;
     };
+
+    connection.onclose = function (event) {
+        clearInterval(timer);
+        console.log('Server closed connection: ' + event.reason);
+        setTimeout(main, 30000);
+    }
 }
 
 function initTimer(seconds) {
