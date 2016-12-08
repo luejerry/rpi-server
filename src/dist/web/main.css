@@ -26,10 +26,18 @@ body {
     border-color: Maroon;
 }
 
+ul {
+    list-style: none;
+}
+
 ul.actions-list {
     list-style: none;
 }
 
 .temp {
+    display: inline-block;
+}
+
+#temp-timer {
     display: inline-block;
 }
