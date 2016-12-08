@@ -10,7 +10,7 @@ public class RPiServer {
 
     private static void init() {
         port(80);
-        staticFiles.location("/web");
+        staticFiles.externalLocation(System.getProperty("user.dir"));
     }
 
     private static void setRoutes() {
