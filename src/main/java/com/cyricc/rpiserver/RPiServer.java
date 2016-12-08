@@ -60,7 +60,6 @@ public class RPiServer {
                     script().withSrc("web/main.js")
             ).render();
         });
-
     }
 
     public static void main(String[] args) {
