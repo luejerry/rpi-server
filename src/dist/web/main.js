@@ -9,7 +9,8 @@ function main() {
     var loc = window.location;
     var connection = new WebSocket('ws://' + loc.host + '/temp');
     var temp = $(".temp");
-    var timer = initTimer(parseInt($('#temp-timer').text()));
+    var timer = setInterval(function() {}, 1000);
+    var counter = parseInt($('#temp-timer').text());
 
     connection.onopen = function () {
         connection.send("ACK");
@@ -23,7 +24,9 @@ function main() {
         // temp.innerHTML = msg.data;
         temp.text(msg.data);
         clearInterval(timer);
-        timer = initTimer(TEMPINTERVAL, 1000);
+        timer = initTimer(counter);
+	$('#temp-timer').text(counter);
+	counter = TEMPINTERVAL;
     };
 }
 
