@@ -4,6 +4,10 @@
 
 body {
     font-family: Helvetica, Arial, sans-serif;
+    max-width: 640px;
+    min-width: 480px;
+    margin: auto;
+    margin-top: 1.5em;
 }
 
 a {
@@ -12,7 +16,7 @@ a {
 }
 
 h2 {
-    margin: 1em 0 0.2em 0;
+    margin: 1.3em 0 0 0;
 }
 
 hr {
@@ -49,7 +53,8 @@ hr, h1 {
 
 ul {
     list-style: none;
-    padding: 0 1.5em;
+    padding: 0 0.7em;
+    margin: 0.5em 0;
 }
 
 ul.actions-list {
