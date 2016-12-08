@@ -26,6 +26,10 @@ body {
     border-color: Maroon;
 }
 
-.actions-list {
+ul.actions-list {
     list-style: none;
+}
+
+.temp {
+    display: inline-block;
 }
