@@ -13,7 +13,7 @@ public class Broadcaster {
 
     final static Queue<Session> sessions = new ConcurrentLinkedQueue<>();
 
-    static void pushTemp(int temp) {
+    static void pushTemp(double temp) {
         sessions.forEach((session) -> {
             try {
                 session.getRemote().sendString(String.valueOf(temp));

@@ -40,11 +40,18 @@ public class TempSensor {
                 }
                 if (oTemp.isPresent()) {
                     temp = oTemp.get();
-                    Broadcaster.pushTemp(temp);
+                    Broadcaster.pushTemp(getTemp());
                 }
             }
 //            Broadcaster.pushTemp(50);
         }, 0, PERIOD, TimeUnit.SECONDS);
+        Publisher.websocket.subscribeConnect(session -> {
+            try {
+                session.getRemote().sendString(String.valueOf(getTemp()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public static Status getStatus() {
