@@ -51,8 +51,7 @@ public class RPiServer {
                                             )
                                     )
                             )
-                    )
-            );,
+                    ),
                     h2("CORE2 access"),
                     footer().with(
                             hr(),
