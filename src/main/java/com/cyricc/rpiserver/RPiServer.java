@@ -47,7 +47,8 @@ public class RPiServer {
                                                             text(TempSensor.oGetDelay()
                                                                     .map(Object::toString)
                                                                     .orElse("0"))
-                                                    )
+                                                    ),
+                                                    text(" seconds to next update)")
                                             )
                                     )
                             )

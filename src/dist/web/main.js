@@ -1,7 +1,7 @@
 /**
  * Created by cyricc on 7/20/2016.
  */
-var TEMP-INTERVAL = 20;
+var TEMPINTERVAL = 20;
 
 $(document).ready(main);
 
@@ -23,7 +23,7 @@ function main() {
         // temp.innerHTML = msg.data;
         temp.text(msg.data);
         clearInterval(timer);
-        timer = initTimer(TEMP-INTERVAL, 1000);
+        timer = initTimer(TEMPINTERVAL, 1000);
     };
 }
 
