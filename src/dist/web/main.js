@@ -17,7 +17,7 @@ function main() {
         counter--;
         temptimer.text(counter);
         if (counter <= 0) {
-            clearInterval(timer);
+            counter = TEMPINTERVAL;
         }
     }, 1000);
 
