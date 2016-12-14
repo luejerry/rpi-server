@@ -47,7 +47,9 @@ public class RPiServer {
                                                             text(TempSensor.getStatus().toString())
                                                     ),
                                                     text("Room temperature: "),
-                                                    div().withClass("temp"),
+                                                    div().withClass("temp").with(
+                                                            text(String.valueOf(TempSensor.getTemp()))
+                                                    ),
                                                     text(" \u00B0C ("),
                                                     div().withId("temp-timer").with(
                                                             text(TempSensor.oGetDelay()
