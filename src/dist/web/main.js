@@ -3,7 +3,7 @@
  */
 "use strict";
 
-let TEMPINTERVAL = 20;
+const TEMPINTERVAL = 20;
 
 $(document).ready(main);
 
@@ -11,9 +11,15 @@ function main() {
     let loc = window.location;
     let connection = new WebSocket('ws://' + loc.host + '/temp');
     let temp = $(".temp");
-    let timer = setInterval(function() {}, 1000);
-    let temptimer = $('temp-timer');
-    let counter = parseInt(temptimer.text);
+    let temptimer = $('#temp-timer');
+    let counter = parseInt(temptimer.text());
+    let timer = setInterval(function() {
+        counter--;
+        temptimer.text(counter);
+        if (counter <= 0) {
+            clearInterval(timer);
+        }
+    }, 1000);
 
     connection.onopen = function () {
         connection.send("ACK");
