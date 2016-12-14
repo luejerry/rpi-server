@@ -1,5 +1,8 @@
 package com.cyricc.rpiserver;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static spark.Spark.*;
 import static j2html.TagCreator.*;
 
@@ -7,6 +10,8 @@ import static j2html.TagCreator.*;
  * Created by luej on 7/1/16.
  */
 public class RPiServer {
+
+//    private static Logger log = LoggerFactory.getLogger(RPiServer.class);
 
     private static void init() {
         port(80);
